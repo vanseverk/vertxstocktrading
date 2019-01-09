@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>The best realtime auctions!</title>
+
+    <script src="//cdn.jsdelivr.net/sockjs/0.3.4/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/myCss.css">
+    <script src="assets/js/swapsies.js"></script>
+    <script src="assets/js/vertx-eventbus.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/Chart.js"></script>
+</head>
+
+<body onload="onLoad()">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-5"></div>
+        <div class="col-md-2">
+            <div class="banner">
+                <div class="logoPlaceholder">
+                    <img src="assets/images/rpb_logo.png"/>
+                </div>
+                <span class="bannerSpan">Reactive stock game</span>
+            </div>
+        </div>
+        <div class="col-md-5"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 currentPrice">
+            <div class="currentPriceContent">
+                <span>Current price: </span>
+                <span id="currentPrice"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!--Column 1-->
+        <div class="col-md-9">
+            <div class="chart">
+                <canvas id="stockChart"></canvas>
+            </div>
+        </div>
+        <!--Column 2-->
+        <div id="tiles" class="col-md-3 tiles">
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

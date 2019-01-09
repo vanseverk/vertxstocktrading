@@ -1,0 +1,56 @@
+.container-fluid {
+    margin: 0 0 0 0;
+}
+.charts {
+    padding: 0 0 0 0;
+}
+.row {
+    padding-top: 10px;
+}
+.banner {
+    text-align: center;
+}
+.bannerSpan {
+    font-size: 20px;
+    color: #333333;
+    font-family: Impact, Charcoal, sans-serif;
+}
+.currentPrice {
+    margin-left: 10px;
+    font-weight: bold;
+}
+.currentPriceContent {
+    font-size: 20px;
+    border: 1px solid gray;
+    border-radius: 2px;
+    width: 80%;
+    text-align: center;
+}
+.tile {
+    text-align: center;
+    font-size: 40px;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: normal;
+    margin: 10px 0 0 40px;
+    width: 80%;
+    height: inherit;
+    border-radius: 4px;
+}
+
+
+@media (max-width: 950px) {
+    .currentPriceContent {
+        margin: auto;
+        width: 176px;
+        height: 30px;
+    }
+    #tiles {
+        margin-top: 15px;
+    }
+    .tile {
+        margin: auto;
+        margin-top: 10px;
+        width: 240px;
+        height: 140px;
+    }
+}

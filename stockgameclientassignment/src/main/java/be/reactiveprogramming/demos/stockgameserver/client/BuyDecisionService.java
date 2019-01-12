@@ -7,11 +7,10 @@ import io.vertx.core.eventbus.EventBus;
 
 public class BuyDecisionService {
 
-    public BuyDecisionService(EventBus eventBus, RestRouter restRouter, String username, String password) {
+    public BuyDecisionService(EventBus eventBus, RestRouter restRouter, String username) {
         /*
-         TODO 7D At this point we will retrieve and process the Event we sent in TODO 7B
-
-         create a localConsumer on the event bus (using the InternalChannels.UPDATES.name()), and pass it a handler which can use the makeDecision to create
+         TODO 7B Now let's start listening to the eventBus and react to the incoming price change!
+         Create a localConsumer on the event bus (using the InternalChannels.UPDATES.name()), and pass it a handler which can use the makeDecision to create
          an orderAction, then put it into an Order, along with your Username and Password and use the restRouter to send it to the server.
          !BEWARE! in case you decide to test this, make sure you won't accidentally spend all your money already on expensive stocks, or sell your current stocks too cheap.
          The code will run every time we get a stock update from the websockets, so your money can be spent quickly.

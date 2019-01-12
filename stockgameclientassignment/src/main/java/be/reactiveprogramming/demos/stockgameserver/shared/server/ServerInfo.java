@@ -2,7 +2,8 @@ package be.reactiveprogramming.demos.stockgameserver.shared.server;
 
 public class ServerInfo {
 
-    // TODO 0 change the following line to the correct IP address instead of "localhost", it should be the IP address of the stock broker server
+    // TODO 1 change the following line to the correct IP address instead of "localhost", it should be the IP address of the stock broker server
+    // (We will give you the required IP address)
     public static final String SERVER = "localhost";
 
     // REST API

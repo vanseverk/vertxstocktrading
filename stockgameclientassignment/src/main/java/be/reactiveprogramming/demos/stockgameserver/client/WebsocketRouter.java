@@ -16,24 +16,12 @@ public class WebsocketRouter {
     }
 
     /*
-     TODO 6 Uh-oh! The Stock websocket service seems to be very unreliable, but we have been given the promise that if one of them goes down, we can rely on a backup service.
+     TODO 6 Our websocket client starts a websocket connection to the server to receive price updates.
+
+     But.. uh-oh! The Stock websocket service seems to be very unreliable, but we have been given the promise that if one of them goes down, we can rely on a backup service.
      However, when the regular websocket service comes up again, the backup one will be closed automatically.
      Modify the websocket client code, so that if the connection goes down, it automatically switches over to the other port and vice versa.
-     You need to do this in a way that resembles recursion.
-
-     HINT: Right now the "regular" handler is defined to handle messages coming in. Take a look at the Connection close handler which will be called when a connection closes.
-
-     http://vertx.io/docs/apidocs/io/vertx/core/http/WebSocket.html#endHandler-io.vertx.core.Handler-
-
-     HINT 2: Take a look at the Exception handler you can add as an argument to the websocket open method, which will be called when the initial connection fails
-
-     http://vertx.io/docs/apidocs/io/vertx/core/http/HttpClient.html#websocket-int-java.lang.String-java.lang.String-io.vertx.core.Handler-io.vertx.core.Handler-
-
-     EXTRA:
-     You can also chain an extra event handler, which will be called in case an exception occurs on an exception after the connection has been established
-
-     http://vertx.io/docs/apidocs/io/vertx/core/http/WebSocket.html#exceptionHandler-io.vertx.core.Handler-
-
+     You need to do this in a way that resembles recursion. Try using the connection close and exception handler to do this.
     */
     public void startWebsocketClient(final int port, final HttpClient client) {
         System.out.println("Starting websocket router connection");
@@ -47,7 +35,10 @@ public class WebsocketRouter {
     }
 
     /*
-     TODO 7B Let's start using the eventbus now. Use the websocket handler above, so that it also publishes the newState object to the eventBus.
+     TODO 7A For the next part of our application, we want to start automating the buying and selling of stocks, based on the information we received through
+     the websocket service. To do so, we will use our BuyDecisionService, which will make decisions on buying and selling of orders. Because we want to build
+     our application in loose components, we will be using Vertx's internal event bus to send a message from our WebsocketRouter to our BuyDecisionService,
+     so it can react appropriately. Use the websocket handler above, so that it also publishes the newState object to the eventBus.
      You can find the eventBus in a field in this class. Use InternalChannels.UPDATES.name() (or another chosen name) as the name of the channel to put it on.
      By sending it on a channel on the eventbus everyone who listens to that channel will receive it, even on a clustered system.
      */
